@@ -5,6 +5,8 @@ VisualStudioVersion = 17.2.32516.85
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PowerSharp", "PowerSharp.csproj", "{53B0316D-1F99-4063-BD6C-BD98EE125933}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Api.Workbench", "..\Api.Workbench\Api.Workbench.csproj", "{D2FE9E7A-4D5A-42B2-BCFA-53330AC8342F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{53B0316D-1F99-4063-BD6C-BD98EE125933}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{53B0316D-1F99-4063-BD6C-BD98EE125933}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{53B0316D-1F99-4063-BD6C-BD98EE125933}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D2FE9E7A-4D5A-42B2-BCFA-53330AC8342F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D2FE9E7A-4D5A-42B2-BCFA-53330AC8342F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D2FE9E7A-4D5A-42B2-BCFA-53330AC8342F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D2FE9E7A-4D5A-42B2-BCFA-53330AC8342F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

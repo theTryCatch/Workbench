@@ -122,7 +122,7 @@ namespace Workbench.PowerSharp
             List<string> _errors = new List<string>();
 
             #region Runspace management
-            var isLocalComputer = this.ComputerName == Environment.MachineName ? true : false;
+            var isLocalComputer = this.ComputerName.ToUpper() == Environment.MachineName.ToUpper() ? true : false;
             if (isLocalComputer)
                 _runspace = RunspaceFactory.CreateRunspace();
             else
