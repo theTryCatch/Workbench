@@ -1,0 +1,12 @@
+C:\Users\admin\source\repos\Workbench\PowerSharp\bin\Debug\net6.0\PowerSharp.deps.json
+C:\Users\admin\source\repos\Workbench\PowerSharp\bin\Debug\net6.0\PowerSharp.dll
+C:\Users\admin\source\repos\Workbench\PowerSharp\bin\Debug\net6.0\PowerSharp.pdb
+C:\Users\admin\source\repos\Workbench\PowerSharp\obj\Debug\net6.0\PowerSharp.csproj.AssemblyReference.cache
+C:\Users\admin\source\repos\Workbench\PowerSharp\obj\Debug\net6.0\PowerSharp.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\admin\source\repos\Workbench\PowerSharp\obj\Debug\net6.0\PowerSharp.AssemblyInfoInputs.cache
+C:\Users\admin\source\repos\Workbench\PowerSharp\obj\Debug\net6.0\PowerSharp.AssemblyInfo.cs
+C:\Users\admin\source\repos\Workbench\PowerSharp\obj\Debug\net6.0\PowerSharp.csproj.CoreCompileInputs.cache
+C:\Users\admin\source\repos\Workbench\PowerSharp\obj\Debug\net6.0\PowerSharp.dll
+C:\Users\admin\source\repos\Workbench\PowerSharp\obj\Debug\net6.0\refint\PowerSharp.dll
+C:\Users\admin\source\repos\Workbench\PowerSharp\obj\Debug\net6.0\PowerSharp.pdb
+C:\Users\admin\source\repos\Workbench\PowerSharp\obj\Debug\net6.0\ref\PowerSharp.dll
