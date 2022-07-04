@@ -16,7 +16,7 @@ namespace Api.Workbench
             return Ok(new PSCode(computer, "C:\\Users\\public\\Get-WinServices.ps1", CodeType.ScriptFile).Invoke().ConvertToJsonPSExecutionResult());
         }
 
-        [Route("WinServices/{computer}/{serviceDisplayName}")]
+        [Route("{computer}/{serviceDisplayName}")]
         [HttpGet]
         public ActionResult<JsonPSExecutionResult> Get(string computer, string serviceDisplayName)
         {
