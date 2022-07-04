@@ -13,7 +13,7 @@ namespace Api.Workbench
         [HttpGet("{computer}")]
         public ActionResult<JsonPSExecutionResult> Get(string computer)
         {
-            return Ok(new PSCode(computer, "C:\\Users\\admin\\Desktop\\Get-WinServices.ps1", CodeType.ScriptFile).Invoke().ConvertToJsonPSExecutionResult());
+            return Ok(new PSCode(computer, "C:\\Users\\public\\Get-WinServices.ps1", CodeType.ScriptFile).Invoke().ConvertToJsonPSExecutionResult());
         }
 
         [Route("WinServices/{computer}/{serviceDisplayName}")]
@@ -22,7 +22,7 @@ namespace Api.Workbench
         {
             var paramss = new Dictionary<string, object>();
             paramss.Add("DisplayName", serviceDisplayName);
-            return Ok(new PSCode(computer, "C:\\Users\\admin\\Desktop\\Get-WinServices.ps1", CodeType.ScriptFile, paramss).Invoke().ConvertToJsonPSExecutionResult());
+            return Ok(new PSCode(computer, "C:\\Users\\public\\Get-WinServices.ps1", CodeType.ScriptFile, paramss).Invoke().ConvertToJsonPSExecutionResult());
         }
     }
 }
