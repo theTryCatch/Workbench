@@ -2,7 +2,7 @@
 using Workbench.PowerSharp;
 using Newtonsoft.Json;
 using Microsoft.PowerShell.Commands;
-
+using System.Resources;
 
 namespace Api.Workbench
 {
@@ -10,19 +10,25 @@ namespace Api.Workbench
     [ApiController]
     public class WinServicesController : Controller
     {
-        [HttpGet("{computer}")]
-        public ActionResult<JsonPSExecutionResult> Get(string computer)
+        [HttpGet("{Computer}")]
+        public ActionResult<JsonPSExecutionResult> Get(string Computer)
         {
-            return Ok(new PSCode(computer, "C:\\Users\\public\\Get-WinServices.ps1", CodeType.ScriptFile).Invoke().ConvertToJsonPSExecutionResult());
+            return Ok(new PSCode(Computer, $"C:\\Users\\admin\\Desktop\\PowerShellScripts\\Get-WinServices.ps1", CodeType.ScriptFile).Invoke().ConvertToJsonPSExecutionResult());
         }
-
-        [Route("{computer}/{serviceDisplayName}")]
-        [HttpGet]
-        public ActionResult<JsonPSExecutionResult> Get(string computer, string serviceDisplayName)
+        [HttpGet("{Computer}/{ServiceName}")]
+        public ActionResult<JsonPSExecutionResult> Get(string Computer, string ServiceName)
         {
-            var paramss = new Dictionary<string, object>();
-            paramss.Add("DisplayName", serviceDisplayName);
-            return Ok(new PSCode(computer, "C:\\Users\\public\\Get-WinServices.ps1", CodeType.ScriptFile, paramss).Invoke().ConvertToJsonPSExecutionResult());
+            var paramsDict = new Dictionary<string, object>();
+            paramsDict.Add("ServiceName", ServiceName);
+            return Ok(new PSCode(Computer, $"C:\\Users\\admin\\Desktop\\PowerShellScripts\\Get-WinServices.ps1", CodeType.ScriptFile,paramsDict).Invoke().ConvertToJsonPSExecutionResult());
+        }
+        [HttpGet("{Computer}/{ServiceName}/{ServiceStatus}")]
+        public ActionResult<JsonPSExecutionResult> Get(string Computer, string ServiceName, string ServiceStatus)
+        {
+            var paramsDict = new Dictionary<string, object>();
+            paramsDict.Add("ServiceName", ServiceName);
+            paramsDict.Add("ServiceStatus", ServiceStatus);
+            return Ok(new PSCode(Computer, $"C:\\Users\\admin\\Desktop\\PowerShellScripts\\Get-WinServices.ps1", CodeType.ScriptFile, paramsDict).Invoke().ConvertToJsonPSExecutionResult());
         }
     }
 }
