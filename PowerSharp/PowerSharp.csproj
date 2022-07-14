@@ -4,9 +4,9 @@
     <TargetFramework>net6.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-    <OutputType>Exe</OutputType>
+    <OutputType>Library</OutputType>
+    <StartupObject></StartupObject>
   </PropertyGroup>
-
   <ItemGroup>
     <PackageReference Include="Microsoft.PowerShell.SDK" Version="7.2.5" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />

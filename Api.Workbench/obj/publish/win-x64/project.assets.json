@@ -8527,6 +8527,7 @@
     "net6.0": [
       "Microsoft.AspNetCore.JsonPatch >= 6.0.6",
       "Microsoft.AspNetCore.Mvc.NewtonsoftJson >= 6.0.6",
+      "Microsoft.Management.Infrastructure >= 2.0.0",
       "Microsoft.PowerShell.SDK >= 7.2.5",
       "Newtonsoft.Json >= 13.0.1",
       "PowerSharp >= 1.0.0",
@@ -8584,6 +8585,10 @@
             "target": "Package",
             "version": "[6.0.6, )"
           },
+          "Microsoft.Management.Infrastructure": {
+            "target": "Package",
+            "version": "[2.0.0, )"
+          },
           "Microsoft.PowerShell.SDK": {
             "target": "Package",
             "version": "[7.2.5, )"
@@ -8607,6 +8612,20 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
+        "downloadDependencies": [
+          {
+            "name": "Microsoft.AspNetCore.App.Runtime.win-x64",
+            "version": "[6.0.6, 6.0.6]"
+          },
+          {
+            "name": "Microsoft.NETCore.App.Runtime.win-x64",
+            "version": "[6.0.6, 6.0.6]"
+          },
+          {
+            "name": "Microsoft.WindowsDesktop.App.Runtime.win-x64",
+            "version": "[6.0.6, 6.0.6]"
+          }
+        ],
         "frameworkReferences": {
           "Microsoft.AspNetCore.App": {
             "privateAssets": "none"

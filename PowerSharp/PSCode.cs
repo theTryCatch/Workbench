@@ -18,7 +18,6 @@ namespace Workbench.PowerSharp
         public Dictionary<string, object>? Parameters { get; }
         public List<FileInfo>? ModulesTobeImported { get; }
         public uint TimeoutInSeconds { get; }
-
         #endregion
 
         #region Constructor
@@ -47,10 +46,6 @@ namespace Workbench.PowerSharp
             this.ModulesTobeImported = modulesTobeImported;
             this.TimeoutInSeconds = timeoutInSeconds;
             #endregion
-
-            #region Cancellation token
-
-            #endregion
         }
         #endregion
 
@@ -62,11 +57,10 @@ namespace Workbench.PowerSharp
         public PSExecutionResult Invoke()
         {
             Func<PSExecutionResult> func = new Func<PSExecutionResult>(IgnitePowerShellInvocation);
-            PSExecutionResult? _executionResults;
 
-            List<string> _errors = new List<string>();
             try
             {
+                PSExecutionResult? _executionResults;
                 var _cts = new CancellationTokenSource();
                 _cts.CancelAfter(TimeSpan.FromSeconds(this.TimeoutInSeconds));
                 var _task = Task.Run(func, _cts.Token);
@@ -77,37 +71,33 @@ namespace Workbench.PowerSharp
                 }
 
                 //TODO: Find a way to handle this conditional disposement using 'using' blocks.
-                if(_task.Status == TaskStatus.RanToCompletion || _task.Status == TaskStatus.Faulted || _task.Status == TaskStatus.Canceled)
+                if (_task.Status == TaskStatus.RanToCompletion || _task.Status == TaskStatus.Faulted || _task.Status == TaskStatus.Canceled)
                 {
                     _task.Dispose();
-                    Console.WriteLine( "cancelling");
                 }
+
+                return _executionResults;
             }
             catch (OperationCanceledException)
             {
-                _errors.Add($"Execution timeout with in {this.TimeoutInSeconds} second(s)");
-                _executionResults = null;
                 return new PSExecutionResult()
                 {
                     ComputerName = this.ComputerName,
-                    Errors = _errors,
+                    Errors = new List<string>() { ($"Execution timeout with in {this.TimeoutInSeconds} second(s)") },
                     HadErrors = true,
                     Results = null
                 };
             }
             catch (Exception e)
             {
-                _errors.Add(e.ToString());
-                _executionResults = null;
                 return new PSExecutionResult()
                 {
                     ComputerName = this.ComputerName,
-                    Errors = _errors,
+                    Errors = new List<string>() {e.Message },
                     HadErrors = true,
                     Results = null
                 };
             }
-            return _executionResults;
         }
         #endregion
 
